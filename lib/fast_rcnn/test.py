@@ -106,6 +106,8 @@ def _get_blobs(im, rois):
     return blobs, im_scale_factors
 
 def im_detect(net, im, boxes=None):
+    caffe.set_mode_gpu()
+    caffe.set_device(0)
     """Detect object classes in an image given object proposals.
 
     Arguments:
